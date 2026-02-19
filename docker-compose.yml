@@ -5,11 +5,12 @@ services:
     image: rabbitmq:4-alpine
     restart: always
     ports:
-      - "15672:15672"
       - "5672:5672"
     environment:
       - RABBITMQ_DEFAULT_USER=pbc
       - RABBITMQ_DEFAULT_PASS=password
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
 
   web-service:
     build: ./web-service
@@ -21,6 +22,8 @@ services:
               "--reload"]
     depends_on:
       - rabbitmq
+    volumes:
+      - ./web-service:/app
 
   email-service:
     build: ./email-service
@@ -32,3 +35,8 @@ services:
               "--reload"]
     depends_on:
       - rabbitmq
+    volumes:
+    - ./email-service:/app
+
+volumes:
+  rabbitmq_data:
