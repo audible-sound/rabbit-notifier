@@ -5,6 +5,7 @@ from RabbitProducer import RabbitProducer
 app = FastAPI()
 
 class Message(BaseModel):
+  receiver: str
   data: str
   
 @app.on_event("startup")
