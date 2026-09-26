@@ -13,8 +13,8 @@ def send_mail(message):
     # Change the values of the variables below according to the service you're using
     smtp_host = "smtp.ethereal.email"
     smtp_port = 587
-    username = "ernest.okeefe89@ethereal.email"
-    password = "5JDCJSUERBmJkX1Es2" 
+    username = "estelle.nikolaus9@ethereal.email"
+    password = "26Crt1pGyPpjw91aRr" 
     
     mail = MIMEText(body, "plain")
     mail["Subject"] = subject
